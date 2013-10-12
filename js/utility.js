@@ -1,3 +1,4 @@
+//supplant
 if (!String.prototype.supplant) {
     String.prototype.supplant = function (o) {
         return this.replace(
@@ -10,6 +11,7 @@ if (!String.prototype.supplant) {
     };
 }
 
+//sorting
 var descendingObj = function(a, b, key){
 	if(a[key] > b[key])
 		return 1;
@@ -26,7 +28,7 @@ var ascendingObj = function(a, b, key){
 	return 0;
 };
 
-// Filter function
+// filter functions
 var filter = function(arr, f) {
 	var output = [];
 
@@ -38,8 +40,17 @@ var filter = function(arr, f) {
 	return output;
 };
 
-/**For picking random quotes from an object!*/
+//expanded for arrays of arrays
+    var filterDeep = function (arr, value, index){
+        var output = [];
+        for(var i = 0; i < arr.length; i++){
+            if(value === arr[i][index])
+                output.push(arr[i]);
+        }
+        return output;
+    };
 
+//for picking random properties in an object
 function pickRandomProperty(obj) {
     var result;
     var count = 0;
@@ -52,14 +63,13 @@ function pickRandomProperty(obj) {
 function pickRandomObject (arr) {
     var result;
     for (var i=0; i < arr.length-1; i++) {
-    	if (Math.random() < 1/i)
+        if (Math.random() < 1/i)
            result = arr[i];
    }
     return result;
 }
 
-//Randomizer
-
+//randomizer
 var randomizer = function(a, b){
     a = Math.floor(Math.random()*101);
     b = Math.floor(Math.random()*101);
@@ -70,8 +80,41 @@ var randomizer = function(a, b){
           console.log(b);
         }
     }
-
     else{
         console.log("Sorry. Cannot Compute!");
     }
 };
+
+//split array in array of arrays
+var splitArray = function (arr, count){
+        var newArray = [];
+        var totArrays = 0;
+        var rem = arr.length%count;
+        var sub = count - rem;
+        if(arr.length <= count){
+            return arr;
+        }
+        else{
+            if(arr.length%count === 0){
+                totArrays = Math.floor(arr.length/count);
+            }
+            else{
+                totArrays = Math.floor(arr.length/count) + 1;
+            }
+            for(var i = 0; i < totArrays; i++){
+                var l = 0;
+                if(i < totArrays - 1){
+                l = count*(i+1);
+                }
+                else{
+                l = (count*(i+1)) - sub;
+                }
+                var k = (count*i);
+                newArray[i] = [];
+                for(var j = k; j < l; j++){
+                    newArray[i].push(arr[j]);
+                }
+            }
+        }
+        return newArray;
+    };

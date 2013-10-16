@@ -50,6 +50,19 @@ var filter = function(arr, f) {
         return output;
     };
 
+//search function
+var search = function (arr, value, index){
+        var re = new RegExp(value, 'gi');
+        var filtered = [];
+        for(var i = 0; i < arr.length; i++){
+            if(arr[i][index].match(re)){
+                filtered.push(arr[i]);
+            }
+        }
+        return filtered;
+    };
+
+
 //for picking random properties in an object
 function pickRandomProperty(obj) {
     var result;

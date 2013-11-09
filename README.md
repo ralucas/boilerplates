@@ -18,3 +18,5 @@ Includes functions on:
 * Ascending/Descending Obj
 * Randomizers
 * Split Array
+* Geolocation in browser
+* Distance calculation functions based on lat & long

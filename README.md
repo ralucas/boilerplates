@@ -12,9 +12,9 @@ Boilerplate files for:
 Utility.js
 ----------
 Includes functions on:
-*Search
-*Filtering
-*Supplant
-*Ascending/Descending Obj
-*Randomizers
-*Split Array
+* Search
+* Filtering
+* Supplant
+* Ascending/Descending Obj
+* Randomizers
+* Split Array
